@@ -1,4 +1,4 @@
-.git
-.cfg
+*.git
+*.cfg
 .idea/
 venv/
