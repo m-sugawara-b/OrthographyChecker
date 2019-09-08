@@ -1,5 +1,5 @@
 import sys
-import orthographic_util
+import orthographic
 
 ORTHOGRAPHIC_FILE_NAME = "orthographic.csv"
 TARGET_FILE_CMD_INDEX = 1
@@ -14,9 +14,9 @@ if len(args) != 2:
 
 # 揺らぎチェックの実行
 try:
-    orthographic_list = orthographic_util.get_orthographic_list(ORTHOGRAPHIC_FILE_NAME)
-    text = orthographic_util.gettext(args[TARGET_FILE_CMD_INDEX])
-    check_result = orthographic_util.check_orthographic(text, orthographic_list)
-    orthographic_util.print_result(check_result)
+    olist = orthographic.readcsv(ORTHOGRAPHIC_FILE_NAME)
+    text = orthographic.gettext(args[TARGET_FILE_CMD_INDEX])
+    check_result = orthographic.count(text, olist)
+    orthographic.pprint(check_result)
 except EnvironmentError:
     print(EnvironmentError)

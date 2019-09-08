@@ -3,7 +3,8 @@ import csv
 import re
 
 
-def get_orthographic_list(file):
+def readcsv(file):
+    """揺らぎファイルから、揺らぎ判定用のリストを作成する。"""
     try:
         with open(file, encoding="utf-8") as f:
             lis = list()
@@ -18,7 +19,8 @@ def get_orthographic_list(file):
         raise EnvironmentError
 
 
-def check_orthographic(text, orthographic_lis):
+def count(text, orthographic_lis):
+    """揺らぎファイルに登録した揺らぎの数がtextにいくつあるか数える"""
     cp_lis = orthographic_lis.copy()
     for dic in cp_lis:
         for key in dic.keys():
@@ -27,7 +29,7 @@ def check_orthographic(text, orthographic_lis):
     return cp_lis
 
 
-def print_result(lis):
+def pprint(lis):
     for dic in lis:
         if(sum(dic.values()) > 0):
             print(dic)
