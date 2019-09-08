@@ -1,4 +1,5 @@
 *.git
 *.cfg
+.gitignore~
 .idea/
 venv/
