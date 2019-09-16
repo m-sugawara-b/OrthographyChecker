@@ -1,4 +1,4 @@
-# GrammerChecker
+# OrthographyChecker
 基本的に自分用に作っているので、コミット履歴などがめちゃくちゃですが、ご了承ください。
 
 ## 1. 表記揺れチェック
