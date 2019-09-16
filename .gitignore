@@ -1,7 +1,0 @@
-*.git
-*.cfg
-.gitignore
-.gitignore~
-__pycache__
-.idea/
-venv/
