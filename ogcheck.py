@@ -1,5 +1,5 @@
 import sys
-import orthographic as og
+import orthography as og
 
 TARGET_FILE_INDEX = 1
 ORTHOGRAPHIC_FILE_INDEX = 2
