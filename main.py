@@ -1,22 +1,21 @@
 import sys
-import orthographic
+import orthographic as og
 
-ORTHOGRAPHIC_FILE_NAME = "orthographic.csv"
-TARGET_FILE_CMD_INDEX = 1
+TARGET_FILE_INDEX = 1
+ORTHOGRAPHIC_FILE_INDEX = 2
 
 # コマンドライン引数を取得
 args = sys.argv
 
 # 引数が設定されていなければ終了
-if len(args) != 2:
-    print("引数を設定してください。")
+if len(args) != 3:
     sys.exit()
 
 # 揺らぎチェックの実行
 try:
-    olist = orthographic.readcsv(ORTHOGRAPHIC_FILE_NAME)
-    text = orthographic.gettext(args[TARGET_FILE_CMD_INDEX])
-    check_result = orthographic.count(text, olist)
-    orthographic.pprint(check_result)
-except EnvironmentError:
-    print(EnvironmentError)
+    text = og.gettext(args[TARGET_FILE_INDEX])
+    oglist = og.read(args[ORTHOGRAPHIC_FILE_INDEX])
+    result = og.wc(text, oglist)
+    og.pprint(result)
+except Exception as e:
+    print(e)

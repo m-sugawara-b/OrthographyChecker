@@ -3,8 +3,7 @@ import csv
 import re
 
 
-def readcsv(file):
-    """揺らぎファイルから、揺らぎ判定用のリストを作成する。"""
+def read(file):
     try:
         with open(file, encoding="utf-8") as f:
             lis = list()
@@ -15,18 +14,17 @@ def readcsv(file):
                     dic[element] = 0
                 lis.append(dic)
             return lis
-    except EnvironmentError:
-        raise EnvironmentError
+    except IOError:
+        raise IOError
 
 
-def count(text, orthographic_lis):
-    """揺らぎファイルに登録した揺らぎの数がtextにいくつあるか数える"""
-    cp_lis = orthographic_lis.copy()
-    for dic in cp_lis:
+def wc(text, oglist):
+    cplist = oglist.copy()
+    for dic in cplist:
         for key in dic.keys():
             for m in re.finditer(key, text, re.MULTILINE):
                 dic[key] = dic[key] + 1
-    return cp_lis
+    return cplist
 
 
 def pprint(lis):
@@ -39,5 +37,5 @@ def gettext(file):
     try:
         with open(file, encoding="utf-8") as f:
             return f.read()
-    except EnvironmentError:
-        raise EnvironmentError
+    except IOError:
+        raise IOError
