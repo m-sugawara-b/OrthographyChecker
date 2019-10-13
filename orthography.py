@@ -29,7 +29,8 @@ def wc(text, oglist):
 
 def pprint(lis):
     for dic in lis:
-        if(sum(dic.values()) > 0):
+        values = dic.values()
+        if len([i for i in values if i > 0]) > 1:
             print(dic)
 
 
